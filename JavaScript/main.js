@@ -29,3 +29,8 @@ function load() {
     
     input.click();
 }
+
+var elem = document.querySelector('#form')
+function submit() {
+    value = elem.value;
+}

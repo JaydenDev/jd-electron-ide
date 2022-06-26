@@ -1,17 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Editor</title>
-    <link rel="stylesheet" href="./out/output.css">
-    <script src="./JavaScript/main.js"></script>
-</head>
-<body class="bg-gray-900">
-    <div class="bg-gray-800 p-3 rounded-sm m-2 text-white w-[99vw]">
-        <button onClick="save()" class="bg-gray-700 p-3 hover:bg-gray-600 rounded-sm">Save</button>
-        <button onClick="load()" class="bg-gray-700 p-3 hover:bg-gray-600 rounded-sm">Load</button>
+    <link rel="stylesheet" href="./lib/code-input/code-input.css" />
+    <script src="./lib/code-input/code-input.js"></script>
+    <link rel="stylesheet" href="./out/output.css" />
+    <link
+      rel="stylesheet"
+      href="//unpkg.com/@highlightjs/cdn-assets@11.5.1/styles/default.min.css"
+    />
+    <script src="//unpkg.com/@highlightjs/cdn-assets@11.5.1/highlight.min.js"></script>
+    <script>
+      codeInput.registerTemplate(
+        "syntax-highlighted",
+        codeInput.templates.hljs(hljs)
+      );
+    </script>
+    <script>
+      hljs.highlightAll();
+    </script>
+  </head>
+  <body class="overflow-hidden scroll-smooth bg-gray-900">
+    <div
+      class="bg-gray-800 flex space-x-2 p-3 rounded-sm m-2 text-white w-[99vw]"
+    >
+      <button
+        onClick="save()"
+        class="bg-gray-700 p-3 hover:bg-gray-600 rounded-sm"
+      >
+        Save
+      </button>
+      <button
+        onClick="load()"
+        class="bg-gray-700 p-3 hover:bg-gray-600 rounded-sm"
+      >
+        Load
+      </button>
     </div>
-    <textarea id="save_area" class="language-html m-2 w-[99vw] h-[85vh] focus:outline-none bg-gray-800 p-3 text-white rounded-sm" contenteditable></texarea>
-</body>
+    <div style="height: 100vh;">
+    <code-input
+    placeholder="Type into the editor and begin coding!"
+    id="save_area"
+  ></code-input>
+  </div>
+    <script src="./JavaScript/main.js"></script>
+  </body>
 </html>
